@@ -1,6 +1,9 @@
 # hbase-rest-standalone
 A docker image of [HBase](https://hbase.apache.org/) running in standalone mode with [REST interface](https://hbase.apache.org/book.html#_rest) enabled.
 
+[![Docker Stars](https://img.shields.io/docker/stars/hyness/hbase-rest-standalone.svg?style=flat-square)](https://hub.docker.com/r/hyness/spring-cloud-config-server)
+[![Docker Pulls](https://img.shields.io/docker/pulls/hyness/hbase-rest-standalone.svg?style=flat-square)](https://hub.docker.com/r/hyness/spring-cloud-config-server)
+
 ## Usage
 ```
 docker run -it --name=hbase \
