@@ -23,15 +23,15 @@ docker run -it --name=hbase \
 * `-h hbase` Set hostname to hbase (optional)
 * `-p 2181` Zookeeper port
 * `-p 8080` REST interface port
-* `-p 16000` Master port
-* `-p 16010` Master info port
-* `-p 16020` Regionserver port
-* `-p 16030` Regionserver info port
+* `-p 60000` Master port
+* `-p 60010` Master info port
+* `-p 60020` Regionserver port
+* `-p 60030` Regionserver info port
 * `-v /data/hbase` HBase persistent data
 * `-v /data/zookeeper` Zookeeper persistent data
 
 #### HBase Master server interface
-http://hbase:16010/master-status
+http://hbase:60010/master-status
 
 #### Verifying HBase REST interface
 ```
