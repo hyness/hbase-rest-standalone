@@ -1,21 +1,21 @@
 FROM java:8-jre
 
-ENV HBASE_VERSION 1.1.3
+ENV HBASE_VERSION 0.98.17
 RUN apt-get update
 RUN apt-get -y install supervisor python-pip
 RUN pip install supervisor-stdout
 
 WORKDIR /opt
-RUN curl -O http://ftp.wayne.edu/apache/hbase/${HBASE_VERSION}/hbase-${HBASE_VERSION}-bin.tar.gz
-RUN tar -zvxf hbase-${HBASE_VERSION}-bin.tar.gz
-RUN ln -s hbase-${HBASE_VERSION} hbase
+RUN curl -O http://ftp.wayne.edu/apache/hbase/${HBASE_VERSION}/hbase-${HBASE_VERSION}-hadoop2-bin.tar.gz
+RUN tar -zvxf hbase-${HBASE_VERSION}-hadoop2-bin.tar.gz
+RUN ln -s hbase-${HBASE_VERSION}-hadoop2 hbase
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-COPY hbase-site.xml /opt/hbase-${HBASE_VERSION}/conf/hbase-site.xml
+COPY hbase-site.xml /opt/hbase/conf/hbase-site.xml
 RUN mkdir -p /data/hbase /data/zookeeper
 
 ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
-ENV PATH $PATH:/opt/hbase-${HBASE_VERSION}/bin
+ENV PATH $PATH:/opt/hbase/bin
 
 # Zookeeper port
 EXPOSE 2181 
@@ -24,16 +24,16 @@ EXPOSE 2181
 EXPOSE 8080
 
 # Master port
-EXPOSE 16000
+EXPOSE 60000
 
 # Master info port
-EXPOSE 16010
+EXPOSE 60010
 
 # Regionserver port
-EXPOSE 16020
+EXPOSE 60020
 
 # Regionserver info port
-EXPOSE 16030
+EXPOSE 60030
 
 VOLUME /data/hbase
 VOLUME /data/zookeeper
