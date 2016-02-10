@@ -10,10 +10,10 @@ docker run -it --name=hbase \
       -h hbase \
       -p 2181:2181 \
       -p 8080:8080 \
-      -p 16000:16000 \
-      -p 16010:16010 \
-      -p 16020:16020 \
-      -p 16030:16030 \
+      -p 60000:60000 \
+      -p 60010:60010 \
+      -p 60020:60020 \
+      -p 60030:60030 \
       -v </path/to/hbasedata>:/data/hbase \
       -v </path/to/zookeeperdata>:/data/zookeeper \
       hyness/hbase-rest-standalone
