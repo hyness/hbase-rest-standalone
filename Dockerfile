@@ -1,6 +1,6 @@
 FROM java:8-jre
 
-ENV HBASE_VERSION 1.1.3
+ENV HBASE_VERSION 1.2.0
 RUN apt-get update
 RUN apt-get -y install supervisor python-pip
 RUN pip install supervisor-stdout
